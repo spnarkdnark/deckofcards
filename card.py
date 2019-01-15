@@ -9,8 +9,9 @@ class Card:
     def __init__(self,number,suit):
         self._suit = suit
         self._number = number
+        self.value = self.getValue()
 
-    def __str__(self):
+    def __repr__(self):
         return self._number.title() + " of " + self._suit.title()
 
     @property
@@ -41,7 +42,16 @@ class Card:
         else:
             print('%s is not an acceptable number!' % number)
 
+    def getValue(self):
+        numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
-card1 = Card('10','hearts')
+        if self._number in numbers:
+            return int(self._number)
 
-print(card1.shorthand)
+        else:
+            return 11
+
+
+
+card1 = Card('3','hearts')
+

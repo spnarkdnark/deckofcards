@@ -57,3 +57,5 @@ class Deck:
 
         self.isShuffled = True
 
+deck1 = Deck()
+
