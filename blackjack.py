@@ -82,11 +82,11 @@ class BlackJack(Game):
         :param player: player hand to be scored
         :return: score of the given player's hand
         """
-        values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
         score = 0
 
         for i in range(len(player.hand)):
-            if player.hand[i].number in values:
+            if player.hand[i].number in numbers:
                 score += int(player.hand[i].number)
             else:
                 score += 11
@@ -115,7 +115,8 @@ class BlackJack(Game):
             choice = input('Hit or Stay!').lower()
 
             if choice == 'hit':
-                player.hand.append(self.deck.deck[-1])
+                get_card = self.deck.deck.pop(-1)
+                player.hand.append(get_card)
 
             elif choice == 'stay':
                 break
@@ -151,5 +152,7 @@ def main():
     new_game = BlackJack()
     new_game.game_loop()
 
+
+game1 = BlackJack()
 
 main()
